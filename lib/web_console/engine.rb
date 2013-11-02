@@ -26,7 +26,7 @@ module WebConsole
     initializer 'web_console.add_default_route' do |app|
       # While we don't need the route in the test environment, we define it
       # there as well, so we can easily test it.
-      if config.web_console.automount && (Rails.env.development? || Rails.env.test?)
+      if config.web_console.automount
         app.routes.append do
           mount WebConsole::Engine => app.config.web_console.default_mount_path
         end
